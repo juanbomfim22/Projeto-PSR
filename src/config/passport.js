@@ -1,9 +1,8 @@
-const { authSecret } = require('../.env')
+const { authSecret, DBNAME } = require('../../.env')
 const passport = require('passport')
 const passportJwt = require('passport-jwt')
 const { Strategy, ExtractJwt } = passportJwt
 
-const DBNAME = 'usuario'
 
 
 module.exports = app => {

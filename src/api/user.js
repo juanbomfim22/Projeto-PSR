@@ -1,13 +1,15 @@
 const { response } = require("express")
 const bcrypt = require('bcrypt-nodejs')
+const { DBNAME } = require('../../.env')
 
-const DBNAME = 'usuario'
+
 
 // Estrutura
 
 /*
 Login:
     Usuário
+    E-mail
     Senha
 */
 
@@ -35,9 +37,9 @@ module.exports = app => {
             .catch(err => response.status(500).json({ error: "Não existe tal usuário" }))
     }
     const save = (request, response) => {
-        if (!request.body.username || !request.body.password) {
+        if (!request.body.username || !request.body.password || !request.body.email) {
             return response.status(401).json({
-                error: "O campo usuário ou senha está faltando"
+                error: "O campo usuário, email ou senha está faltando"
             })
         }
         obterHash(request.body.password, hash => {

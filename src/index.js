@@ -1,9 +1,12 @@
+const db = require('./config/db')
+
 const express = require('express')
 const app = express()
-const db = require('./config/db')
+
+const path = require('path');
 const consign = require('consign')
 
-consign()
+consign({ cwd: path.join(__dirname)})
     .include('./config/passport.js')
     .then('./config/middlewares.js')
     .then('./api')
@@ -11,6 +14,7 @@ consign()
     .into(app)
 
 app.db = db
+app.use(express.static('public'))
 
 app.listen(3000, () => {
     console.log('Backend executando... na porta 3000')

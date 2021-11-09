@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+        content="947756629386-j2n26mn95sp9orfo93oimcj8q0lne94o.apps.googleusercontent.com">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>PSR</title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        <button class="btn btn-primary navbar-btn" onclick="signOut()">Sign out</button>
+    </div>
+
+    <script>
+        async function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var id_token = googleUser.getAuthResponse().id_token;
+
+            
+            // Para o desenvolvimento
+            // const response = await axios.post('/tokensignin', new URLSearchParams({
+            //     id_token
+            // }))
+
+            // Para os testes, use essa api
+            const { data } = await axios.get(`https://oauth2.googleapis.com/tokeninfo?id_token=${id_token}`)
+
+            console.log(data)
+            console.log(profile)
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+
+        function signInGH(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            var div = document.querySelector("#results")
+            console.log(profile)
+        }
+
+    </script>
+</body>
+
+</html>
