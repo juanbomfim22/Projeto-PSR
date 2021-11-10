@@ -1,41 +1,18 @@
-// const db = require('./config/db')
-// // const consign = require('consign')
-// const express = require("express")
-
-// const app = express()
-
-// // Na app local
-// // const path = require('path')
-// // const CWD = path.join(__dirname)
-
-// // No heroku
-// // const CWD = process.cwd() + '/app'
-
-// // consign({ cwd: CWD })
-// //     .include('./config/passport.js')
-// //     .then('./config/middlewares.js')
-// //     .then('./api')
-// //     .then('./config/routes.js')
-// //     .into(app)
-
-// // app.use(express.static("public"))
-// app.get("/", function (req, res) {
-//     res.send("<h1>Hello World!</h1>")
-//   })
-
-// app.listen(process.env.PORT || 3000, 
-// 	() => console.log("Server is running..."));
-
+const consign = require('consign')
 const express = require("express")
 const app = express()
 
-// use the express-static middleware
-// app.use(express.static("public"))
+const db = require(process.cwd() + '/src/config/db')
 
-// define the first route
-app.get("/", function (req, res) {
-  res.send("<h1>Hello World!" + process.cwd() + "</h1>")
-})
+// use the express-static middleware
+app.use(express.static("public"))
+
+consign()
+    .include('src/config/passport.js')
+    .then('src/config/middlewares.js')
+    .then('src/api')
+    .then('src/config/routes.js')
+    .into(app)
 
 // start the server listening for requests
 app.listen(process.env.PORT || 3000, 
