@@ -12,7 +12,7 @@ module.exports = {
     max: 10
   }
 }; 
-
+ 
 // LOCAL
 
 // module.exports = {
