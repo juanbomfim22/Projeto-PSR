@@ -9,7 +9,7 @@ const app = express()
 // const CWD = path.join(__dirname)
 
 // No heroku
-const CWD = process.cwd() + '/app/src'
+const CWD = process.cwd() + '/app'
 
 consign({ cwd: CWD })
     .include('./config/passport.js')
@@ -20,8 +20,8 @@ consign({ cwd: CWD })
 
 
 // use the express-static middleware
-app.use(express.static("public"))
-
+// app.use(express.static("public"))
+app.get('/', (req, res) => res.send(`<h1>${CWD}</h1>`))
 // start the server listening for requests
 app.listen(process.env.PORT || 3000, 
 	() => console.log("Server is running..."));
