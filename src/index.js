@@ -8,11 +8,11 @@ const app = express()
 // use the express-static middleware
 app.use(express.static("public"))
 
-consign({cwd: process.cwd()})
-    .include('./src/config/passport.js')
-    .then('./src/config/middlewares.js')
-    .then('./src/api')
-    .then('/src/config/routes.js')
+consign({cwd: process.cwd() + '/src'})
+    .include('./config/passport.js')
+    .then('./config/middlewares.js')
+    .then('./api')
+    .then('./config/routes.js')
     .into(app)
 
  
