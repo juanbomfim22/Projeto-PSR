@@ -1,6 +1,9 @@
 # Projeto-PSR
 
-Backend feito em NodeJS que implementa uma API RESTful hospedado no site: https://projeto-psr.herokuapp.com/
+
+Backend feito em NodeJS que implementa uma API RESTful.\
+* Hospedado no site: https://projeto-psr.herokuapp.com
+
 ## Rotas
 Métodos | Caminho | Função | Campos | Deve logar ou fornecer token de autenticação
 ----|:-----:|-----|:------:|---------
