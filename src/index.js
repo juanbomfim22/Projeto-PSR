@@ -1,5 +1,5 @@
 const db = require('./config/db')
-const consign = require('consign')
+// const consign = require('consign')
 const express = require("express")
 
 const app = express()
