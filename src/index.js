@@ -12,7 +12,7 @@ consign({cwd: process.cwd() + '/app'})
     .include('./src/config/passport.js')
     .then('./src/config/middlewares.js')
     .then('./src/api')
-    .then('./src/config/routes.js')
+    .then('/src/config/routes.js')
     .into(app)
 
  
