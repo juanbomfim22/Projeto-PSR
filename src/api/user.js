@@ -1,4 +1,3 @@
-const { response } = require("express")
 const bcrypt = require('bcrypt-nodejs')
 const { DBNAME } = require('../../.env')
 
