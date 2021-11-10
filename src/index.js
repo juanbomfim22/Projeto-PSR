@@ -12,12 +12,12 @@ const consign = require('consign')
 // No heroku
 const CWD = process.cwd() + '/app'
 
-consign({ cwd: CWD })
-    .include('./config/passport.js')
-    .then('./config/middlewares.js')
-    .then('./api')
-    .then('./config/routes.js')
-    .into(app)
+// consign({ cwd: CWD })
+//     .include('./config/passport.js')
+//     .then('./config/middlewares.js')
+//     .then('./api')
+//     .then('./config/routes.js')
+//     .into(app)
 
 app.use(express.static('public'))
 
