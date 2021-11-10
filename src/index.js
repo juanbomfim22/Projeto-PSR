@@ -2,7 +2,7 @@ const consign = require('consign')
 const express = require("express")
 const app = express()
 
-const db = require(process.cwd() + '/src/config/db')
+const db = require(process.cwd() + '/app' + '/src/config/db')
 
 // use the express-static middleware
 app.use(express.static("public"))
