@@ -9,7 +9,7 @@ const app = express()
 // const CWD = path.join(__dirname)
 
 // No heroku
-const CWD = process.cwd() + '/app'
+// const CWD = process.cwd() + '/app'
 
 // consign({ cwd: CWD })
 //     .include('./config/passport.js')
@@ -19,7 +19,7 @@ const CWD = process.cwd() + '/app'
 //     .into(app)
 
 // app.use(express.static("public"))
-app.get('/', (req, res) => res.send(`<h1>${CWD}</h1>`))
+app.get('/', (req, res) => res.send(`<h1>${12}</h1>`))
 
 app.listen(process.env.PORT || 3000, 
 	() => console.log("Server is running..."));
