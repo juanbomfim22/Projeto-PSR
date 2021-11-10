@@ -1,7 +1,6 @@
 const bcrypt = require('bcrypt-nodejs')
-const { DBNAME } = require('../../.env')
 
-
+const { DBNAME } = process.env // se fosse sem o heroku require('../../.env')
 
 // Estrutura
 

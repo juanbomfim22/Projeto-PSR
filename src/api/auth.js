@@ -1,8 +1,8 @@
-const { authSecret, CLIENT_ID, DBNAME } = require('../../.env')
 const jwt = require('jwt-simple')
 const bcrypt = require('bcrypt-nodejs')
 const { OAuth2Client } = require('google-auth-library');
 
+const { authSecret, CLIENT_ID, DBNAME } = process.env // require('../../.env') se fosse sem o heroku
 
 module.exports = app => {
     // Disponível no tuturial do google https://developers.google.com/identity/sign-in/web/backend-auth
